@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Pauline’s Peaceful Pathways PLLC</title>
+  <meta name="description" content="Compassionate psychiatric care for adults (18+): evaluations, medication management, ADHD, anxiety, and depression treatment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    :root{
+      /* Brand colors (match logo butterflies) */
+      --primary:#7a6fd9;      /* purple */
+      --primary-700:#5c51b5;  /* darker hover */
+      --secondary:#66b7e8;    /* sky blue */
+      --accent:#c781d9;       /* pink/lilac */
+      --bg:#faf9ff;
+      --dark:#1e2a2f;
+      --muted:#6b7b83;
+      --radius:14px;
+      --shadow:0 10px 20px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--dark);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;background:#fff}
+    h1,h2,h3{font-family:Merriweather,serif;line-height:1.25;margin:0 0 .5rem}
+    p{margin:.5rem 0 1rem}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;border-radius:12px}
+
+    .container{width:min(1100px,92%);margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eef2f3}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.6rem;color:inherit;text-decoration:none}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:8px}
+    .brand span{font-weight:700}
+    .nav-toggle{border:0;background:transparent;font-size:1.4rem;display:none}
+    .nav-list{display:flex;align-items:center;gap:1rem;list-style:none;margin:0;padding:0}
+    .nav-list a{color:var(--dark);text-decoration:none;font-weight:600}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;border:0;border-radius:999px;padding:.8rem 1.1rem;cursor:pointer;font-weight:700;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--primary-700)}
+    .btn-outline{background:#fff;color:var(--primary);border:2px solid var(--primary)}
+    .btn-secondary{background:#fff;color:var(--primary);border:2px solid var(--primary)}
+    .tiny{font-size:.86rem}.muted{color:var(--muted)}
+    .hero{position:relative;color:#fff;min-height:62vh;display:grid;place-items:center;background:
+      linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat fixed;}
+    .hero-inner{text-align:center}
+    .hero h1{font-size:clamp(1.9rem,5vw,3rem);margin-bottom:.6rem}
+    .hero-ctas{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+    .hero-bullets{display:flex;gap:1rem;flex-wrap:wrap;list-style:none;justify-content:center;margin:1rem 0 0;padding:0}
+    .hero-bullets li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:.4rem .7rem;border-radius:999px}
+
+    .section{padding:4rem 0}
+    .section.alt{background:var(--bg)}
+    .section-title{text-align:center;margin-bottom:.4rem}
+    .section-subtitle{text-align:center;color:var(--muted);max-width:720px;margin:.4rem auto 2rem}
+
+    .two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+    .grid{display:grid;gap:1.2rem}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#fff;border:1px solid #eef2f3;border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 15px 26px rgba(0,0,0,.12)}
+    .service-card .icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--secondary);color:#0e2a35;font-size:1.35rem;margin-bottom:.6rem;transition:transform .25s}
+    .service-card:hover .icon{transform:scale(1.06) rotate(-2deg)}
+
+    .insurers-grid .insurer-card{display:grid;place-items:center;min-height:90px}
+    .insurer-card .badge{display:inline-flex;align-items:center;justify-content:center;padding:.6rem 1rem;border-radius:999px;border:1px dashed var(--muted);background:#fff}
+
+    .blog-card{padding:0;overflow:hidden}
+    .blog-card img{width:100%;height:180px;object-fit:cover;border-radius:12px 12px 0 0}
+    .blog-card .card-body{padding:1rem}
+
+    .note{background:#fff8f1;border:1px solid #ffe1c0;border-radius:12px;padding:1rem}
+
+    .site-footer{background:#0f171a;color:#dfe7ea;margin-top:2rem}
+    .site-footer a{color:#dfe7ea}
+    .footer-bottom{display:flex;justify-content:center;border-top:1px solid rgba(255,255,255,.09);padding:.8rem 0}
+
+    .sticky-cta{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;background:#fff;border:1px solid #eef2f3;border-radius:999px;box-shadow:var(--shadow);padding:.3rem .4rem;z-index:60}
+    .sticky-cta a,.sticky-cta button{border:0;background:transparent;padding:.6rem .8rem;border-radius:999px;cursor:pointer;color:var(--dark)}
+    .sticky-cta a:hover,.sticky-cta button:hover{background:var(--bg)}
+
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.in-view{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){.reveal{transition:none}}
+    @media (max-width:920px){.two-col{grid-template-columns:1fr;gap:1.2rem}}
+    @media (max-width:900px){
+      .nav-toggle{display:block}
+      .nav-list{position:fixed;inset:auto 0 0 0;background:#fff;flex-direction:column;padding:1rem;border-top:1px solid #eef2f3;transform:translateY(100%);transition:transform .25s ease;z-index:55}
+      .nav-list.open{transform:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#home" style="position:absolute;left:-999px;">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="Practice logo">
+        <span>Pauline’s Peaceful Pathways PLLC</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu"><span class="sr-only">Menu</span><i class="fa-solid fa-bars"></i></button>
+        <ul id="navMenu" class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact" class="btn btn-outline">Contact</a></li>
+          <li><a href="tel:13609640739" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero" aria-label="Intro">
+      <div class="container hero-inner reveal">
+        <h1>Find your peaceful pathway to better mental health</h1>
+        <p>Compassionate, evidence‑based psychiatric care for adults 18+ in Washington.</p>
+        <div class="hero-ctas">
+          <a href="tel:13609640739" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+          <a href="#contact" class="btn btn-secondary"><i class="fa-regular fa-envelope"></i> Contact Us</a>
+          <button class="btn" data-modal="appointment"><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
+        </div>
+        <ul class="hero-bullets">
+          <li><i class="fa-solid fa-check"></i> Psychiatric Evaluation & Diagnosis</li>
+          <li><i class="fa-solid fa-check"></i> Medication Management</li>
+          <li><i class="fa-solid fa-check"></i> ADHD, Anxiety, Depression</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title reveal">Services for Adults (18+)</h2>
+        <p class="section-subtitle reveal">Respectful, personalized care to help you feel balanced and supported.</p>
+        <div class="grid cards">
+          <div class="card service-card reveal">
+            <div class="icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h3>Psychiatric Evaluation & Diagnosis</h3>
+            <p>Thorough assessments to form a clear plan.</p>
+          </div>
+          <div class="card service-card reveal">
+            <div class="icon"><i class="fa-solid fa-pills"></i></div>
+            <h3>Medication Management</h3>
+            <p>Careful prescribing, monitoring, and education.</p>
+          </div>
+          <div class="card service-card reveal">
+            <div class="icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>ADHD Treatment</h3>
+            <p>Evaluation and management tailored to adult ADHD.</p>
+          </div>
+          <div class="card service-card reveal">
+            <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3>Anxiety Treatment</h3>
+            <p>Evidence‑based approaches to reduce symptoms.</p>
+          </div>
+          <div class="card service-card reveal">
+            <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+            <h3>Depression Treatment</h3>
+            <p>Support to improve mood and functioning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section alt" id="about">
+      <div class="container two-col">
+        <div class="col image reveal">
+          <img src="headshot.jpg" alt="Professional headshot" loading="lazy">
+        </div>
+        <div class="col reveal">
+          <h2 class="section-title">Meet the Provider</h2>
+          <p>MSN, APRN, PMHNP — board‑certified Psychiatric Mental Health Nurse Practitioner providing patient‑centered care with dignity, respect, and evidence‑based treatment.</p>
+          <ul class="checklist">
+            <li>Adults (18+): ADHD, Anxiety, Depression</li>
+            <li>Medication management and evaluations</li>
+            <li>Collaborative, respectful approach</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance -->
+    <section class="section" id="insurance">
+      <div class="container">
+        <h2 class="section-title reveal">Insurance Accepted</h2>
+        <p class="section-subtitle reveal">Please call to verify your benefits.</p>
+        <div class="grid cards insurers-grid">
+          <div class="card insurer-card reveal"><span class="badge">Medicare</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Medicaid</span></div>
+          <div class="card insurer-card reveal"><span class="badge">BCBS</span></div>
+          <div class="card insurer-card reveal"><span class="badge">UHC</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Optum</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Cigna</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Aetna</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Humana</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Tricare</span></div>
+          <div class="card insurer-card reveal"><span class="badge">First Choice Health</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Regence</span></div>
+          <div class="card insurer-card reveal"><span class="badge">Premera</span></div>
+        </div>
+        <p class="tiny muted reveal">Logos/names are for identification only and may be subject to trademark rights of their owners.</p>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section alt" id="testimonials">
+      <div class="container">
+        <h2 class="section-title reveal">What patients say</h2>
+        <div class="grid cards">
+          <div class="card reveal"><p>“I felt heard and supported. The plan made a real difference.”</p><span class="tiny muted">— Adult patient, WA</span></div>
+          <div class="card reveal"><p>“Professional, kind, and thorough in explaining my options.”</p><span class="tiny muted">— Patient feedback</span></div>
+          <div class="card reveal"><p>“Appointments are calm and collaborative. Highly recommend.”</p><span class="tiny muted">— Patient review</span></div>
+        </div>
+        <p class="tiny muted">Testimonials are examples and do not guarantee outcomes.</p>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section class="section" id="blog">
+      <div class="container">
+        <h2 class="section-title reveal">From the Blog</h2>
+        <div class="grid cards">
+          <article class="card blog-card reveal">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1200&auto=format&fit=crop" alt="Notebook and coffee">
+            <div class="card-body">
+              <h3>ADHD Management Tips</h3>
+              <p>Practical strategies to improve focus and follow‑through.</p>
+              <div class="tiny muted">ADHD • 5 min read</div>
+            </div>
+          </article>
+          <article class="card blog-card reveal">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Calm ocean waves">
+            <div class="card-body">
+              <h3>Coping with Anxiety</h3>
+              <p>Evidence‑based tools to reduce worry and physical symptoms.</p>
+              <div class="tiny muted">Anxiety • 6 min read</div>
+            </div>
+          </article>
+          <article class="card blog-card reveal">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Sunrise over forest path">
+            <div class="card-body">
+              <h3>Understanding Depression</h3>
+              <p>Recognize signs and explore options for getting help.</p>
+              <div class="tiny muted">Depression • 7 min read</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section alt" id="faqs">
+      <div class="container">
+        <h2 class="section-title reveal">FAQs</h2>
+        <details class="card reveal"><summary><strong>Do you see adults only?</strong></summary><div>Yes. The practice serves adults aged 18 and older.</div></details>
+        <details class="card reveal"><summary><strong>Do you accept insurance?</strong></summary><div>Yes. Medicare, Medicaid, BCBS, UHC, Optum, Cigna, Aetna, Humana, Tricare, First Choice Health, Regence, and Premera. Please call to verify your benefits.</div></details>
+        <details class="card reveal"><summary><strong>Do you offer telehealth?</strong></summary><div>Telehealth may be available depending on clinical needs and state regulations. Please call to discuss.</div></details>
+        <details class="card reveal"><summary><strong>What should I bring to my first visit?</strong></summary><div>A list of current medications, past treatments, relevant records, and your insurance card.</div></details>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="section" id="resources">
+      <div class="container">
+        <h2 class="section-title reveal">Resources</h2>
+        <div class="grid cards">
+          <a href="https://988lifeline.org" target="_blank" rel="noopener" class="card reveal">
+            <h3><i class="fa-solid fa-life-ring"></i> 988 Suicide & Crisis Lifeline</h3>
+            <p>Call or text 988 for 24/7 support.</p>
+          </a>
+          <a href="https://www.nimh.nih.gov/health" target="_blank" rel="noopener" class="card reveal">
+            <h3><i class="fa-solid fa-book-medical"></i> NIMH — Mental Health</h3>
+            <p>Evidence‑based information on disorders and treatments.</p>
+          </a>
+          <a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" rel="noopener" class="card reveal">
+            <h3><i class="fa-solid fa-hands-holding"></i> SAMHSA Helpline</h3>
+            <p>Confidential, free help for mental health and substance use.</p>
+          </a>
+        </div>
+        <div class="note reveal" style="margin-top:1rem">
+          <h3>HIPAA & Privacy</h3>
+          <p>Please avoid sending detailed medical or sensitive information via email or web forms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section alt" id="contact">
+      <div class="container two-col">
+        <div class="col reveal">
+          <h2>Contact</h2>
+          <p><strong>Practice:</strong> Pauline’s Peaceful Pathways PLLC</p>
+          <p><strong>Phone:</strong> <a href="tel:13609640739">360‑964‑0739</a></p>
+          <p><strong>Email:</strong> <a href="mailto:peacefulpathways64@gmail.com">peacefulpathways64@gmail.com</a></p>
+          <p><strong>Address:</strong> P.O. Box 226, Elma, WA 98541</p>
+          <p class="tiny muted"><strong>Emergency:</strong> Call 911 or 988. Do not use this form for emergencies.</p>
+        </div>
+        <div class="col reveal">
+          <h2>Send a message</h2>
+          <form action="https://formsubmit.co/peacefulpathways64@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Inquiry - Pauline’s Peaceful Pathways PLLC">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- TODO: Replace with your live URL once published -->
+            <input type="hidden" name="_next" value="https://mutee7272.github.io/paulines-peaceful-pathways/">
+            <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+              <label>Full Name<input name="name" type="text" required style="width:100%;padding:.7rem;border:1px solid #dfe6ea;border-radius:10px"></label>
+              <label>Email<input name="email" type="email" required style="width:100%;padding:.7rem;border:1px solid #dfe6ea;border-radius:10px"></label>
+              <label>Phone (optional)<input name="phone" type="tel" style="width:100%;padding:.7rem;border:1px solid #dfe6ea;border-radius:10px"></label>
+              <label class="full" style="grid-column:1/-1">Message<textarea name="message" rows="5" required style="width:100%;padding:.7rem;border:1px solid #dfe6ea;border-radius:10px"></textarea></label>
+              <label class="full tiny" style="grid-column:1/-1"><input type="checkbox" required> I understand this form is not for emergencies and I won’t include sensitive PHI.</label>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top:.8rem"><i class="fa-regular fa-paper-plane"></i> Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+      <div class="container reveal" style="text-align:center">
+        <h2>Ready to start your peaceful pathway?</h2>
+        <p>Call or message to schedule your first appointment.</p>
+        <div class="hero-ctas">
+          <a href="tel:13609640739" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call Now</a>
+          <a href="#contact" class="btn btn-secondary"><i class="fa-regular fa-envelope"></i> Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="padding:1.2rem 0">
+      <div class="brand" style="gap:.6rem"><img src="logo.png" alt="Practice logo" style="width:28px;height:28px;border-radius:6px"><span>Pauline’s Peaceful Pathways PLLC</span></div>
+      <p class="tiny muted">© <span id="year"></span> Pauline’s Peaceful Pathways PLLC. All rights reserved.</p>
+    </div>
+    <div class="footer-bottom"><p class="tiny muted">If you are experiencing an emergency, call 911 or 988.</p></div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <a href="tel:13609640739"><i class="fa-solid fa-phone"></i> Call</a>
+    <a href="#contact"><i class="fa-regular fa-envelope"></i> Message</a>
+    <button data-modal="appointment"><i class="fa-regular fa-calendar-check"></i> Book</button>
+  </div>
+
+  <!-- Appointment Modal -->
+  <div class="modal" id="appointmentModal" role="dialog" aria-modal="true" aria-labelledby="appointmentTitle" hidden
+       style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:70;padding:1rem">
+    <div class="modal-inner" style="background:#fff;border-radius:16px;max-width:520px;width:100%;padding:1.2rem;box-shadow:var(--shadow);position:relative">
+      <button class="modal-close" aria-label="Close" style="position:absolute;right:1rem;top:1rem;border:0;background:transparent;font-size:1.2rem;cursor:pointer"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="appointmentTitle">Online booking coming soon</h3>
+      <p>Please call <a href="tel:13609640739">360‑964‑0739</a> or use the contact form to request an appointment.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav
+    const toggle=document.querySelector('.nav-toggle');
+    const navList=document.querySelector('#navMenu');
+    if(toggle&&navList){
+      toggle.addEventListener('click',()=>{const open=navList.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+    }
+    // Reveal animations
+    const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){
+      const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}})},{threshold:.15});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else {document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in-view'));}
+    // Year
+    const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    // Modal
+    const openBtns=document.querySelectorAll('[data-modal="appointment"]');
+    const modal=document.getElementById('appointmentModal');
+    if(modal){
+      const closeBtn=modal.querySelector('.modal-close');
+      const open=()=>modal.removeAttribute('hidden');
+      const close=()=>modal.setAttribute('hidden','');
+      openBtns.forEach(b=>b.addEventListener('click',open));
+      closeBtn&&closeBtn.addEventListener('click',close);
+      modal.addEventListener('click',(e)=>{ if(e.target===modal) close(); });
+    }
+  </script>
+</body>
+</html>
